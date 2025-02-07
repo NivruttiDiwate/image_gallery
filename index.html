@@ -1,0 +1,423 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Fotoware Layout</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.6.0/css/all.min.css">
+    <style>
+        header {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            background-color: #333;
+            color: #fff;
+            padding: 10px 20px;
+        }
+
+        header .logo {
+            font-size: 24px;
+            font-weight: bold;
+        }
+
+        header nav {
+            display: flex;
+            align-items: center;
+            gap: 10px;
+        }
+
+        header nav input[type="text"] {
+            padding: 5px;
+            border: none;
+            border-radius: 3px;
+        }
+
+        header nav button {
+            background-color: #555;
+            color: #fff;
+            border: none;
+            padding: 5px 10px;
+            border-radius: 3px;
+            cursor: pointer;
+        }
+
+        header .user-info {
+            font-size: 12px;
+        }
+
+        .container {
+            display: flex;
+            margin-top: 10px;
+        }
+
+        .sidebar {
+            width: 200px;
+            background-color: #f0f0f0;
+            padding: 20px;
+            border-right: 1px solid #ccc;
+        }
+
+        .sidebar .selection-info {
+            margin-bottom: 20px;
+            color: #333;
+        }
+
+        .sidebar button {
+            background-color: #333;
+            color: #fff;
+            border: none;
+            padding: 10px;
+            cursor: pointer;
+            width: 100%;
+            border-radius: 3px;
+        }
+
+        main {
+            flex-grow: 1;
+            padding: 20px;
+        }
+
+        main h2 {
+            font-size: 18px;
+            margin-bottom: 20px;
+        }
+
+        .gallery-container {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 30px;
+        }
+
+        .card-container {
+            width: 270px;
+            cursor: pointer;
+            display: flex;
+            flex-direction: column;
+            justify-content: space-between;
+            margin: 15px;
+            overflow: hidden;
+            margin-bottom: 3rem;
+            background: #eee;
+            border-radius: 5px;
+            box-shadow: 0px 0px 5px;
+        }
+
+        .card-container img {
+            width: 100%;
+            height: 165px;
+            object-fit: cover;
+            border-radius: 5px;
+            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.2);
+            transition: transform 0.3s ease;
+        }
+
+        .card-container img:hover {
+            transform: scale(1.1);
+        }
+
+        #tooltip {
+            position: fixed;
+            display: none;
+            z-index: 1000;
+            border: 2px solid #ddd;
+            background: white;
+            padding: 5px;
+            border-radius: 5px;
+            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.3);
+            max-width: 600px;
+        }
+
+        #tooltip img {
+            width: 100%;
+            height: auto;
+            border-radius: 5px;
+        }
+
+        .icon-centainer {
+            display: flex;
+            justify-content: center;
+            gap: 10px;
+            padding: 10px 0;
+        }
+
+        .icon-centainer i {
+            font-size: 1.4rem;
+            color: #333333;
+            cursor: pointer;
+            transition: color 0.3s ease;
+        }
+
+        .icon-centainer i:hover {
+            color: #555;
+        }
+    </style>
+</head>
+
+<body>
+    <header>
+        <div class="logo">Fotoware</div>
+        <nav>
+            <input type="text" placeholder="Search">
+            <button>Go</button>
+            <button>Extended Search</button>
+            <button>Archives</button>
+            <button>Views</button>
+            <button>Tools</button>
+            <button>Administration</button>
+        </nav>
+        <div class="user-info">Logout (Gurmeet Singh)</div>
+    </header>
+
+    <div class="container">
+        <main>
+            <h2>"Photo Archive": 2405280 files</h2>
+            <div class="gallery-container">
+                <div class="card-container">
+                    <div>
+                        <div class="image-container" data-preview="assets/images/img1.jpeg">
+                            <img src="assets/images/img1.jpeg" alt="Image 1 Preview">
+                        </div>
+                        <div class="icon-centainer">
+                            <i class="fa-solid fa-floppy-disk"></i>
+                            <i class="fa-solid fa-magnifying-glass"></i>
+                        </div>
+                    </div>
+
+                </div>
+                <div class="card-container">
+
+                    <div>
+                        <div class="image-container" data-preview="assets/images/img2.jpg">
+                            <img src="assets/images/img2.jpg" alt="Image 1 Preview">
+                        </div>
+                        <div class="icon-centainer">
+                            <i class="fa-solid fa-floppy-disk"></i>
+                            <i class="fa-solid fa-magnifying-glass"></i>
+                        </div>
+                    </div>
+
+                </div>
+                <div class="card-container">
+
+                    <div>
+                        <div class="image-container" data-preview="assets/images/img3.jpg">
+                            <img src="assets/images/img3.jpg" alt="Image 3 Preview">
+                        </div>
+                        <div class="icon-centainer">
+                            <i class="fa-solid fa-floppy-disk"></i>
+                            <i class="fa-solid fa-magnifying-glass"></i>
+                        </div>
+                    </div>
+
+                </div>
+                <div class="card-container">
+
+                    <div>
+                        <div class="image-container" data-preview="assets/images/img4.jpg">
+                            <img src="assets/images/img4.jpg" alt="Image 4 Preview">
+                        </div>
+                        <div class="icon-centainer">
+                            <i class="fa-solid fa-floppy-disk"></i>
+                            <i class="fa-solid fa-magnifying-glass"></i>
+                        </div>
+                    </div>
+
+                </div>
+                <div class="card-container">
+
+                    <div>
+                        <div class="image-container" data-preview="assets/images/img1.jpeg">
+                            <img src="assets/images/img1.jpeg" alt="Image 1 Preview">
+                        </div>
+                        <div class="icon-centainer">
+                            <i class="fa-solid fa-floppy-disk"></i>
+                            <i class="fa-solid fa-magnifying-glass"></i>
+                        </div>
+                    </div>
+
+                </div>
+                <div class="card-container">
+
+                    <div>
+                        <div class="image-container" data-preview="assets/images/img2.jpg">
+                            <img src="assets/images/img2.jpg" alt="Image 1 Preview">
+                        </div>
+                        <div class="icon-centainer">
+                            <i class="fa-solid fa-floppy-disk"></i>
+                            <i class="fa-solid fa-magnifying-glass"></i>
+                        </div>
+                    </div>
+
+                </div>
+                <div class="card-container">
+
+                    <div>
+                        <div class="image-container" data-preview="assets/images/img3.jpg">
+                            <img src="assets/images/img3.jpg" alt="Image 3 Preview">
+                        </div>
+                        <div class="icon-centainer">
+                            <i class="fa-solid fa-floppy-disk"></i>
+                            <i class="fa-solid fa-magnifying-glass"></i>
+                        </div>
+                    </div>
+
+                </div>
+                <div class="card-container">
+
+                    <div>
+                        <div class="image-container" data-preview="assets/images/img4.jpg">
+                            <img src="assets/images/img4.jpg" alt="Image 4 Preview">
+                        </div>
+                        <div class="icon-centainer">
+                            <i class="fa-solid fa-floppy-disk"></i>
+                            <i class="fa-solid fa-magnifying-glass"></i>
+                        </div>
+                    </div>
+
+                </div>
+
+                <div class="card-container">
+
+                    <div>
+                        <div class="image-container" data-preview="assets/images/img1.jpeg">
+                            <img src="assets/images/img1.jpeg" alt="Image 1 Preview">
+                        </div>
+                        <div class="icon-centainer">
+                            <i class="fa-solid fa-floppy-disk"></i>
+                            <i class="fa-solid fa-magnifying-glass"></i>
+                        </div>
+                    </div>
+
+                </div>
+                <div class="card-container">
+
+                    <div>
+                        <div class="image-container" data-preview="assets/images/img2.jpg">
+                            <img src="assets/images/img2.jpg" alt="Image 1 Preview">
+                        </div>
+                        <div class="icon-centainer">
+                            <i class="fa-solid fa-floppy-disk"></i>
+                            <i class="fa-solid fa-magnifying-glass"></i>
+                        </div>
+                    </div>
+
+                </div>
+                <div class="card-container">
+
+                    <div>
+                        <div class="image-container" data-preview="assets/images/img3.jpg">
+                            <img src="assets/images/img3.jpg" alt="Image 3 Preview">
+                        </div>
+                        <div class="icon-centainer">
+                            <i class="fa-solid fa-floppy-disk"></i>
+                            <i class="fa-solid fa-magnifying-glass"></i>
+                        </div>
+                    </div>
+
+                </div>
+                <div class="card-container">
+
+                    <div>
+                        <div class="image-container" data-preview="assets/images/img4.jpg">
+                            <img src="assets/images/img4.jpg" alt="Image 4 Preview">
+                        </div>
+                        <div class="icon-centainer">
+                            <i class="fa-solid fa-floppy-disk"></i>
+                            <i class="fa-solid fa-magnifying-glass"></i>
+                        </div>
+                    </div>
+
+                </div>
+
+                <div class="card-container">
+
+                    <div>
+                        <div class="image-container" data-preview="assets/images/img1.jpeg">
+                            <img src="assets/images/img1.jpeg" alt="Image 1 Preview">
+                        </div>
+                        <div class="icon-centainer">
+                            <i class="fa-solid fa-floppy-disk"></i>
+                            <i class="fa-solid fa-magnifying-glass"></i>
+                        </div>
+                    </div>
+
+                </div>
+                <div class="card-container">
+
+                    <div>
+                        <div class="image-container" data-preview="assets/images/img2.jpg">
+                            <img src="assets/images/img2.jpg" alt="Image 1 Preview">
+                        </div>
+                        <div class="icon-centainer">
+                            <i class="fa-solid fa-floppy-disk"></i>
+                            <i class="fa-solid fa-magnifying-glass"></i>
+                        </div>
+                    </div>
+
+                </div>
+                <div class="card-container">
+
+                    <div>
+                        <div class="image-container" data-preview="assets/images/img3.jpg">
+                            <img src="assets/images/img3.jpg" alt="Image 3 Preview">
+                        </div>
+                        <div class="icon-centainer">
+                            <i class="fa-solid fa-floppy-disk"></i>
+                            <i class="fa-solid fa-magnifying-glass"></i>
+                        </div>
+                    </div>
+
+                </div>
+                <div class="card-container">
+
+                    <div>
+                        <div class="image-container" data-preview="assets/images/img4.jpg">
+                            <img src="assets/images/img4.jpg" alt="Image 4 Preview">
+                        </div>
+                        <div class="icon-centainer">
+                            <i class="fa-solid fa-floppy-disk"></i>
+                            <i class="fa-solid fa-magnifying-glass"></i>
+                        </div>
+                    </div>
+
+                </div>
+
+            </div>
+        </main>
+    </div>
+
+    <div id="tooltip"></div>
+
+    <script>
+        document.addEventListener("DOMContentLoaded", () => {
+            const tooltip = document.getElementById("tooltip");
+
+            document.querySelectorAll(".image-container").forEach(container => {
+                container.addEventListener("mouseenter", (event) => {
+                    const previewSrc = container.getAttribute("data-preview");
+                    tooltip.innerHTML = `<img src="${previewSrc}" alt="Preview">`;
+                    tooltip.style.display = "block";
+                });
+
+                container.addEventListener("mousemove", (event) => {
+                    const tooltipRect = tooltip.getBoundingClientRect();
+                    const tooltipX = Math.max(10, event.clientX - tooltipRect.width - 10);
+                    const tooltipY = Math.min(
+                        window.innerHeight - tooltipRect.height - 10,
+                        event.clientY + 10
+                    );
+
+                    tooltip.style.left = `${tooltipX}px`;
+                    tooltip.style.top = `${tooltipY}px`;
+                });
+
+                container.addEventListener("mouseleave", () => {
+                    tooltip.style.display = "none";
+                });
+            });
+        });
+    </script>
+</body>
+
+</html>
